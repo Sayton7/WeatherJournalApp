@@ -11,17 +11,41 @@ generateButton.addEventListener('click', performAction);
 
 function performAction(){
     const zipCode = document.getElementById('zip').value;
-    apiCall(baseURL, zipCode, apiKey);
+    const feelings = document.getElementById('feelings').value;
+    apiCall(baseURL, zipCode, apiKey)
+    .then(function(data){
+        postData('/info', {temp: data.main.temp, feel: feelings});
+    });
 };
 
+//setting the API callback function
 const apiCall = async (baseURL, zip, key) => {
     const res = await fetch(baseURL+zip+",us"+key);
     
     try {
         const data = await res.json();
-        console.log(data);
         return data;
     } catch(error) {
         console.log("error", error);
     }
 };
+
+//setting the post function
+const postData = async (url = '', data = {}) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    });
+
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    } catch(error) {
+        console.log("error", error);
+    }
+}
