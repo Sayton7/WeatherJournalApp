@@ -1,0 +1,72 @@
+/*
+Loaded google font:
+font-family: 'Lobster', cursive;
+*/
+
+/* Basic styling */
+html {
+    min-height: 100%;
+    background: rgb(35,213,205);
+    background: linear-gradient(315deg, rgba(35,213,205,1) 0%, rgba(15,51,103,1) 89%);
+}
+
+body {
+    color: white;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    margin: 1em;
+    font-size: 5em;
+    text-align: center;
+}
+
+.zip__holder {
+    display: grid;
+    grid-auto-rows: minmax(1.5em, auto);
+    justify-content: center;
+    grid-gap: 0.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    margin: 2em;
+}
+
+.feelings__holder {
+    display: grid;
+    grid-auto-rows: minmax(1.5em, auto);
+    justify-content: center;
+    grid-gap: 0.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    margin: 2em;
+}
+
+input {
+    border-radius: 0.5em;
+    border: 2px solid #00e6e6;
+    font-size: 0.5em;
+}
+
+textarea {
+    border-radius: 0.5em;
+    border: 2px solid #00e6e6;
+    font-size: large;
+}
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    cursor: pointer;
+    font-weight: 1000;
+    font-size: xx-large;
+    border-radius: 0.5em;
+    border: 2px solid #00e6e6;
+    background-color: transparent;
+    padding: 0.5em;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
