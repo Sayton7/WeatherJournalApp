@@ -1,3 +1,6 @@
+//setting the project's endpoint
+projectData = {};
+
 //seting up express
 const express = require('express');
 const app = express();
@@ -15,7 +18,7 @@ app.use(cors());
 //directing to the main project folder
 app.use(express.static('website'));
 
-//setting up the port and listening function
+//setting up the port and the listening function
 const port = 8080;
 
 const server = app.listen(port, listening);
@@ -32,6 +35,7 @@ app.post('/info', info);
 function info(req, res) {
 
     newEntry = {
+        date: req.body.date,
         temp: req.body.temp,
         feel: req.body.feel
     }
@@ -40,3 +44,11 @@ function info(req, res) {
     res.send(weatherData);
     console.log(weatherData);
 };
+
+//setting the GET route
+app.get('/all', getInfo)
+
+function getInfo(req, res) {
+    res.send(weatherData)
+    console.log(weatherData)
+}
