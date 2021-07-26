@@ -25,7 +25,7 @@ const server = app.listen(port, listening);
 function listening() {
     console.log("server running");
     console.log(`running on port: ${port}`);
-}
+};
 
 //setting the POST route
 const weatherData = [];
@@ -51,4 +51,4 @@ app.get('/all', getInfo)
 function getInfo(req, res) {
     res.send(weatherData)
     console.log(weatherData)
-}
+};
