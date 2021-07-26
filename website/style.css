@@ -4,6 +4,7 @@ font-family: 'Lobster', cursive;
 */
 
 /* Basic styling */
+
 html {
     min-height: 100%;
     background: rgb(35,213,205);
@@ -53,7 +54,7 @@ textarea {
     font-size: large;
 }
 
-button {
+#generate {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     cursor: pointer;
@@ -65,8 +66,48 @@ button {
     padding: 0.5em;
 }
 
+/* removing the focus outlines */
+
 input:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+/* dynamic UI element style */
+
+#entryHolder {
+    font-family: 'Lobster', cursive;
+    font-size: 2em;
+    background: rgb(15,51,103,0.6);
+    background: linear-gradient(0deg, rgba(15,51,103,0.95) 0%, rgba(35,213,205,0.85) 50%, rgba(15,51,103,0.95) 100%);
+    border: 1px solid #00e6e6;
+    border-radius: 1em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    padding : 1.5em 1em;
+    display: grid;
+    grid-auto-rows: minmax(1.5em, auto);
+    row-gap: 1em;
+    display: none;
+}
+
+#close {
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 0.55em;
+    color: white;
+    font-weight: bolder;
+    top: 0.85em;
+    right: 0.85em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#date,#temp,#data {
+    margin: 0.75em
 }
