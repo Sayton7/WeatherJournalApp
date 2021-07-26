@@ -5,20 +5,28 @@
 const baseURL = "http://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = "&appid=5735a0eeb9696af4386be5cbd8100747";
 
-//setting the generate button API call function
+//setting the generate button actions
 const generateButton = document.getElementById('generate');
 generateButton.addEventListener('click', performAction);
 
 function performAction(){
+    //getting the entered zip code
     const zipCode = document.getElementById('zip').value;
+    //getting the entered feelings
     const feelings = document.getElementById('feelings').value;
+    //getting the weather data
     apiCall(baseURL, zipCode, apiKey)
+    
     .then(function(data){
-        postData('/info', {temp: data.main.temp, feel: feelings});
-    });
+        console.log(data);
+        //posting the data to the server
+        postData('/info', {date:data.dt, temp: data.main.temp, feel: feelings})
+        //updating the UI
+        updateUI()
+    })
 };
 
-//setting the API callback function
+//setting the weather API callback function
 const apiCall = async (baseURL, zip, key) => {
     const res = await fetch(baseURL+zip+",us"+key);
     
@@ -30,7 +38,7 @@ const apiCall = async (baseURL, zip, key) => {
     }
 };
 
-//setting the post function
+//setting the POST function
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -47,5 +55,19 @@ const postData = async (url = '', data = {}) => {
         return newData;
     } catch(error) {
         console.log("error", error);
+    }
+};
+
+//setting up the updateUI function
+const updateUI = async () => {
+    const request = await fetch('/all')
+    try {
+        const allData = await request.json()
+        console.log(allData)
+        document.getElementById('date').innerHTML = allData[allData.length-1].date;
+        document.getElementById('temp').innerHTML = allData[allData.length-1].temp;
+        document.getElementById('data').innerHTML = allData[allData.length-1].feel;
+    } catch(error) {
+        console.log("error", error)
     }
 }
