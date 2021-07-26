@@ -13,3 +13,14 @@ In this project I will use [Open Weather Map API](https://openweathermap.org/) t
 
 I've updated my github repository after almost each of my daily sessions of working on the project so that you could follow up with the history and the building process of the files.
 To view the repo please follow the link [Weather Journal App](https://github.com/Sayton7/WeatherJournalApp).
+
+## References
+
+* [Setting up the API link](https://openweathermap.org/current#zip)
+* [Date formatting from Epoch to Local](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* [Degree symbol](https://www.toptal.com/designers/htmlarrows/math/degree-sign/)
+* [Center elements with CSS](https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/)
+
+## Note
+
+Most of the lines are actually explained in the course itself and I didn't have to search for outer sources much. so many lines of my code might be close to what was introduced in the course itself.
