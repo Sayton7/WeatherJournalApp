@@ -24,3 +24,8 @@ To view the repo please follow the link [Weather Journal App](https://github.com
 ## Note
 
 Most of the lines are actually explained in the course itself and I didn't have to search for outer sources much. so many lines of my code might be close to what was introduced in the course itself.
+
+# Fixed Notes
+
+1- package.json file is missing which is required to install all the dependencies for your project.
+* Created the required files following this link [Create a package.json File](https://heynode.com/tutorial/create-packagejson-file/)
