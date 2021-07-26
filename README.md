@@ -28,4 +28,4 @@ Most of the lines are actually explained in the course itself and I didn't have 
 # Fixed Notes
 
 1- package.json file is missing which is required to install all the dependencies for your project.
-* Created the required files following this link [Create a package.json File](https://heynode.com/tutorial/create-packagejson-file/)
+* Created the required files ( package.json / package-lock.json ) following this tutorial [Create a package.json File](https://heynode.com/tutorial/create-packagejson-file/)
