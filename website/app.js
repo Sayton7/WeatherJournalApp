@@ -18,7 +18,6 @@ function performAction(){
     apiCall(baseURL, zipCode, apiKey)
     
     .then(function(data){
-        console.log(data);
         //posting the data to the server
         postData('/info', {date:data.dt, temp: data.main.temp, feel: feelings})
         //updating the UI
@@ -64,10 +63,22 @@ const updateUI = async () => {
     try {
         const allData = await request.json()
         console.log(allData)
-        document.getElementById('date').innerHTML = allData[allData.length-1].date;
-        document.getElementById('temp').innerHTML = allData[allData.length-1].temp;
-        document.getElementById('data').innerHTML = allData[allData.length-1].feel;
+        const date = new Date(allData[allData.length-1].date*1000)
+        // console.log(date.toLocaleString()) //more detailed date expression
+        //adding +1 to the getMonth as the function gives the numbers 0~11 to the months
+        document.getElementById('date').innerHTML = `Date : ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+        //using the degree symbol &#176;
+        document.getElementById('temp').innerHTML = `Temprature : ${allData[allData.length-1].temp} &#176;F`;
+        document.getElementById('data').innerHTML = `You are feeling : ${allData[allData.length-1].feel}`;
+        //show the results UI element
+        document.getElementById('entryHolder').style.display = "block";
     } catch(error) {
         console.log("error", error)
     }
-}
+};
+
+//setting the close button to hide the result UI element
+const closeButton = document.getElementById('close')
+closeButton.addEventListener('click', () => {
+    document.getElementById('entryHolder').style.display = "none"
+});
