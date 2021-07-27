@@ -34,6 +34,9 @@ Most of the lines are actually explained in the course itself and I didn't have 
 * Added the metric option to my API key const.
 
 3- You need to use empty js object as the project's endpoint
-** Changed the project's endpoint from an empty array to an empty object called projectData on the server side
+* On the server side
+* * Changed the project's endpoint from an empty array to an empty object called projectData
+* 
+* Changed the project's endpoint from an empty array to an empty object called projectData on the server side
 * Changed the POST and GET functions accordingly to handle the data through the projectData object on the server side
 * Changed the updateUI function to handle the data through the server's endpoint object on the client side
