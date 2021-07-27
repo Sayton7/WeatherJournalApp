@@ -29,3 +29,11 @@ Most of the lines are actually explained in the course itself and I didn't have 
 
 1- package.json file is missing which is required to install all the dependencies for your project.
 * Created the required files ( package.json / package-lock.json ) following this tutorial [Create a package.json File](https://heynode.com/tutorial/create-packagejson-file/)
+
+2- You need to required unit conversion based on apiKey.
+* Added the metric option to my API key const.
+
+3- You need to use empty js object as the project's endpoint
+** Changed the project's endpoint from an empty array to an empty object called projectData on the server side
+* Changed the POST and GET functions accordingly to handle the data through the projectData object on the server side
+* Changed the updateUI function to handle the data through the server's endpoint object on the client side
