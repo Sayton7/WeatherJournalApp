@@ -1,6 +1,3 @@
-//setting the project's endpoint
-projectData = {};
-
 //seting up express
 const express = require('express');
 const app = express();
@@ -27,28 +24,29 @@ function listening() {
     console.log(`running on port: ${port}`);
 };
 
+//setting the project's endpoint
+projectData = {};
+
 //setting the POST route
-const weatherData = [];
 
 app.post('/info', info);
 
 function info(req, res) {
 
-    newEntry = {
-        date: req.body.date,
-        temp: req.body.temp,
-        feel: req.body.feel
-    }
+    const data = req.body;
+    console.log("Server side data", data)
 
-    weatherData.push(newEntry);
-    res.send(weatherData);
-    console.log(weatherData);
+    projectData["date"] = data.date;
+    projectData["temp"] = data.temp;
+    projectData["feel"] = data.feel;
+
+    res.send(projectData);
 };
 
 //setting the GET route
 app.get('/all', getInfo)
 
 function getInfo(req, res) {
-    res.send(weatherData)
-    console.log(weatherData)
+    res.send(projectData)
+    console.log("Server side data", projectData)
 };
