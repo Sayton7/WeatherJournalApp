@@ -3,7 +3,8 @@
 // zip samples: 11413, 94040
 
 const baseURL = "http://api.openweathermap.org/data/2.5/weather?zip=";
-const apiKey = "&appid=5735a0eeb9696af4386be5cbd8100747";
+//added the units option
+const apiKey = "&appid=5735a0eeb9696af4386be5cbd8100747&units=metric";
 
 //setting the generate button actions
 const generateButton = document.getElementById('generate');
@@ -63,13 +64,13 @@ const updateUI = async () => {
     try {
         const allData = await request.json()
         console.log(allData)
-        const date = new Date(allData[allData.length-1].date*1000)
+        const date = new Date(allData.date*1000)
         // console.log(date.toLocaleString()) //more detailed date expression
         //adding +1 to the getMonth as the function gives the numbers 0~11 to the months
         document.getElementById('date').innerHTML = `Date : ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
         //using the degree symbol &#176;
-        document.getElementById('temp').innerHTML = `Temprature : ${allData[allData.length-1].temp} &#176;F`;
-        document.getElementById('data').innerHTML = `You are feeling : ${allData[allData.length-1].feel}`;
+        document.getElementById('temp').innerHTML = `Temprature : ${allData.temp} &#176;C`;
+        document.getElementById('data').innerHTML = `You are feeling : ${allData.feel}`;
         //show the results UI element
         document.getElementById('entryHolder').style.display = "block";
     } catch(error) {
